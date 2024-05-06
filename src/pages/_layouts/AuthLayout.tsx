@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom";
-import { Pizza } from "lucide-react";
+import { Pizza } from 'lucide-react'
+import { Outlet } from 'react-router-dom'
 
 export const AuthLayout = () => {
   return (
@@ -19,5 +19,5 @@ export const AuthLayout = () => {
         <Outlet />
       </div>
     </div>
-  );
-};
+  )
+}

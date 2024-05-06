@@ -1,8 +1,9 @@
-import "./global.css";
+import './global.css'
 
-import { RouterProvider } from "react-router-dom";
-import { router } from "./routes";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { RouterProvider } from 'react-router-dom'
+
+import { router } from './routes'
 
 export const App = () => {
   return (
@@ -10,5 +11,5 @@ export const App = () => {
       <Helmet titleTemplate="%s | pizza.shop" />
       <RouterProvider router={router} />
     </HelmetProvider>
-  );
-};
+  )
+}

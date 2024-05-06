@@ -1,7 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@radix-ui/react-label";
-import { Helmet } from "react-helmet-async";
+import { Label } from '@radix-ui/react-label'
+import { Helmet } from 'react-helmet-async'
+
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 export const SignIn = () => {
   return (
@@ -30,5 +31,5 @@ export const SignIn = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet-async'
 
 export const Dashboard = () => {
   return (
@@ -6,5 +6,5 @@ export const Dashboard = () => {
       <Helmet title="Dashboard" />
       <div>dashboard</div>
     </>
-  );
-};
+  )
+}
