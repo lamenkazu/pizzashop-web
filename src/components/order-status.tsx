@@ -30,7 +30,7 @@ export const OrderStatus = ({ status }: OrderStatusProps) => {
         <span className="h-2 w-2 rounded-full bg-emerald-500" />
       )}
       {['processing', 'delivering'].includes(status) && (
-        <span className="bg-amber -500 h-2 w-2  rounded-full" />
+        <span className="h-2 w-2 rounded-full  bg-amber-500" />
       )}
 
       <span className="font-medium text-muted-foreground">
