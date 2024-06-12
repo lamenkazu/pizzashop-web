@@ -15,7 +15,7 @@ test('sign up sucessfully', async ({ page }) => {
 
   const toast = page.getByText('Restaurante cadastrado com suesso.')
 
-  expect(toast).toBeVisible()
+  await expect(toast).toBeVisible()
 
   await page.waitForTimeout(2000) // Aguarda 2 segundos para ver no UI do playwright
 })
@@ -35,7 +35,7 @@ test('sign up with error', async ({ page }) => {
 
   const toast = page.getByText('Erro ao cadastrar restaurante.')
 
-  expect(toast).toBeVisible()
+  await expect(toast).toBeVisible()
 
   await page.waitForTimeout(2000) // Aguarda 2 segundos para ver no UI do playwright
 })

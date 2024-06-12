@@ -5,10 +5,10 @@ test('list orders', async ({ page }) => {
     waitUntil: 'networkidle', // Depois de navegar para a página de login eu quero esperar que todas as requisições javasscript estejam finalizadas.
   })
 
-  expect(
+  await expect(
     page.getByRole('cell', { name: 'Customer-1', exact: true }),
   ).toBeVisible()
-  expect(page.getByRole('cell', { name: 'Customer-10' })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'Customer-10' })).toBeVisible()
 })
 
 test('paginate orders', async ({ page }) => {
@@ -18,31 +18,31 @@ test('paginate orders', async ({ page }) => {
 
   await page.getByRole('button', { name: 'proxima pagina' }).click()
 
-  expect(
+  await expect(
     page.getByRole('cell', { name: 'Customer-11', exact: true }),
   ).toBeVisible()
-  expect(page.getByRole('cell', { name: 'Customer-20' })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'Customer-20' })).toBeVisible()
 
   await page.getByRole('button', { name: 'ultima pagina' }).click()
 
-  expect(
+  await expect(
     page.getByRole('cell', { name: 'Customer-51', exact: true }),
   ).toBeVisible()
-  expect(page.getByRole('cell', { name: 'Customer-60' })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'Customer-60' })).toBeVisible()
 
   await page.getByRole('button', { name: 'pagina anterior' }).click()
 
-  expect(
+  await expect(
     page.getByRole('cell', { name: 'Customer-41', exact: true }),
   ).toBeVisible()
-  expect(page.getByRole('cell', { name: 'Customer-50' })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'Customer-50' })).toBeVisible()
 
   await page.getByRole('button', { name: 'primeira pagina' }).click()
 
-  expect(
+  await expect(
     page.getByRole('cell', { name: 'Customer-1', exact: true }),
   ).toBeVisible()
-  expect(page.getByRole('cell', { name: 'Customer-10' })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'Customer-10' })).toBeVisible()
 })
 
 test('filter by order id', async ({ page }) => {
@@ -53,7 +53,7 @@ test('filter by order id', async ({ page }) => {
   await page.getByPlaceholder('ID do pedido').fill('order-11')
   await page.getByRole('button', { name: 'Filtrar resultados' }).click()
 
-  expect(page.getByRole('cell', { name: 'order-11' })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'order-11' })).toBeVisible()
 })
 
 test('filter by customer name', async ({ page }) => {
@@ -64,7 +64,7 @@ test('filter by customer name', async ({ page }) => {
   await page.getByPlaceholder('Nome do cliente').fill('Customer-11')
   await page.getByRole('button', { name: 'Filtrar resultados' }).click()
 
-  expect(page.getByRole('cell', { name: 'Customer-11' })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'Customer-11' })).toBeVisible()
 })
 
 test('filter by status', async ({ page }) => {
@@ -77,9 +77,9 @@ test('filter by status', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Filtrar resultados' }).click()
 
-  const tableRows = await page.getByRole('cell', { name: 'Pendente' }).all()
+  const tableRows = page.getByRole('cell', { name: 'Pendente' })
 
-  expect(tableRows).toHaveLength(10)
+  await expect(tableRows).toHaveCount(10)
 
   await page.waitForTimeout(1000)
 })
